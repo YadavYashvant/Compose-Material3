@@ -38,24 +38,31 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.compose_material3.ui.theme.Composematerial3Theme
 import androidx.activity.compose.BackHandler
+import androidx.compose.animation.expandHorizontally
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.sharp.Edit
 import androidx.compose.material3.Button
 import androidx.compose.material3.DismissibleDrawerSheet
 import androidx.compose.material3.DismissibleNavigationDrawer
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilledIconButton
+import androidx.compose.material3.FilledTonalButton
+import androidx.compose.material3.FilledTonalIconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationDrawerItem
 import androidx.compose.material3.Text
@@ -88,27 +95,40 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .align(Alignment.BottomCenter)
+                                .padding(horizontal = 12.dp)
                         ){
+                            Row(
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                modifier = Modifier
+                                    .fillMaxWidth().padding(vertical = 10.dp),
+                                verticalAlignment = Alignment.Bottom
+                            ) {
+
                             IconButton(onClick = { /*TODO*/ },
                                 modifier = Modifier
-                                    .padding(10.dp, 5.dp)
-                                    .size(ButtonDefaults.IconSize)
+                                    //.size(ButtonDefaults.IconSize)
                             ) {
-                                Icon(Icons.Filled.Check, contentDescription = "description",
+                                Icon(Icons.Default.AccountBox, contentDescription = "description",
                                     )
                             }
                             IconButton(onClick = { /*TODO*/ },
-                                modifier = Modifier
-                                    .padding(10.dp,5.dp)
+                                modifier = Modifier,
                                 ) {
                                 Icon(imageVector = Icons.Filled.Edit, contentDescription = "Edit")
                             }
+                            IconButton(onClick = { /*TODO*/ },
+                                modifier = Modifier
+                            ) {
+                                Icon(imageVector = Icons.Sharp.Edit, contentDescription = "Edit")
+                            }
                             ExtendedFloatingActionButton(onClick = { /*TODO*/ },
                                 containerColor = BottomAppBarDefaults.bottomAppBarFabColor,
-                                elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation()
+                                elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation(),
+                                modifier = Modifier
                                 ) {
                                 Icon(imageVector = Icons.Filled.Add, contentDescription = "checking")
                             }
+                        }
                         }
                     }
                 }
