@@ -12,7 +12,6 @@ import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AlertDialogDefaults
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonElevation
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -60,9 +59,7 @@ fun Dialog() {
                 TextButton(
                     onClick = {
                         openDialog.value = false
-                    },
-                    modifier = Modifier
-                        .padding(8.dp)
+                    }
                 ) {
                     Text("Confirm")
                 }
@@ -72,8 +69,6 @@ fun Dialog() {
                     onClick = {
                         openDialog.value = false
                     },
-                    modifier = Modifier
-                        .padding(8.dp),
                 ) {
                     Text("Dismiss")
                 }

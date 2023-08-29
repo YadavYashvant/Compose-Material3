@@ -84,6 +84,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Box {
+                        NavigationDrawer()
                         Box (
                             modifier = Modifier
                                 .align(Alignment.TopEnd)
@@ -100,7 +101,8 @@ class MainActivity : ComponentActivity() {
                             Row(
                                 horizontalArrangement = Arrangement.SpaceBetween,
                                 modifier = Modifier
-                                    .fillMaxWidth().padding(vertical = 10.dp),
+                                    .fillMaxWidth()
+                                    .padding(vertical = 10.dp),
                                 verticalAlignment = Alignment.Bottom
                             ) {
 
