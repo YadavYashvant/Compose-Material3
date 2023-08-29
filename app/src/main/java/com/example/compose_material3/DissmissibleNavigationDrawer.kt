@@ -3,6 +3,7 @@ package com.example.compose_material3
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -20,6 +21,7 @@ import androidx.compose.material3.DismissibleDrawerSheet
 import androidx.compose.material3.DismissibleNavigationDrawer
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationDrawerItem
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDrawerState
@@ -49,6 +51,7 @@ fun NavigationDrawer(){
     }
     DismissibleNavigationDrawer(
         drawerState = drawerState,
+        modifier = Modifier.background(MaterialTheme.colorScheme.onPrimary),
         drawerContent = {
             DismissibleDrawerSheet{
                 Spacer(Modifier.height(12.dp))
@@ -73,9 +76,9 @@ fun NavigationDrawer(){
                     .padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+                /*
                 Text(text = if (drawerState.isClosed) ">>> Swipe >>>" else "<<< Swipe <<<")
                 Spacer(Modifier.height(20.dp))
-                /*
                 Button(onClick = {
                     scope.launch { drawerState.isOpen }
                 }) {

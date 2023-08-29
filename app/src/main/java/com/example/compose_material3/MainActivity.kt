@@ -43,6 +43,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Favorite
@@ -53,6 +54,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.DismissibleDrawerSheet
 import androidx.compose.material3.DismissibleNavigationDrawer
 import androidx.compose.material3.DrawerValue
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationDrawerItem
@@ -74,35 +76,41 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    NavigationDrawer()
                     Box {
-
-                    BottomAppBar (
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .align(Alignment.BottomCenter)
-                    ){
-                        IconButton(onClick = { /*TODO*/ },
+                        Box (
                             modifier = Modifier
-                                .padding(10.dp, 5.dp)
-                                .size(ButtonDefaults.IconSize)
-                        ) {
-                            Icon(Icons.Filled.Check, contentDescription = "description",
-                                )
+                                .align(Alignment.TopEnd)
+                                .wrapContentSize()
+                        ){
+                            Dialog()
                         }
-                        IconButton(onClick = { /*TODO*/ },
+                        BottomAppBar (
                             modifier = Modifier
-                                .padding(10.dp,5.dp)
+                                .fillMaxWidth()
+                                .align(Alignment.BottomCenter)
+                        ){
+                            IconButton(onClick = { /*TODO*/ },
+                                modifier = Modifier
+                                    .padding(10.dp, 5.dp)
+                                    .size(ButtonDefaults.IconSize)
                             ) {
-                            Icon(imageVector = Icons.Filled.Edit, contentDescription = "Edit")
+                                Icon(Icons.Filled.Check, contentDescription = "description",
+                                    )
+                            }
+                            IconButton(onClick = { /*TODO*/ },
+                                modifier = Modifier
+                                    .padding(10.dp,5.dp)
+                                ) {
+                                Icon(imageVector = Icons.Filled.Edit, contentDescription = "Edit")
+                            }
+                            ExtendedFloatingActionButton(onClick = { /*TODO*/ },
+                                containerColor = BottomAppBarDefaults.bottomAppBarFabColor,
+                                elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation()
+                                ) {
+                                Icon(imageVector = Icons.Filled.Add, contentDescription = "checking")
+                            }
                         }
-                        ExtendedFloatingActionButton(onClick = { /*TODO*/ },
-                            containerColor = BottomAppBarDefaults.bottomAppBarFabColor,
-                            elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation()
-                            ) {
-                            Icon(imageVector = Icons.Filled.Add, contentDescription = "checking")
-                        }
-                    }}
+                    }
                 }
             }
         }
