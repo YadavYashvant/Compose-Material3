@@ -53,6 +53,9 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.outlined.AccountBox
+import androidx.compose.material.icons.outlined.Create
+import androidx.compose.material.icons.outlined.Email
 import androidx.compose.material.icons.sharp.Edit
 import androidx.compose.material3.Button
 import androidx.compose.material3.DismissibleDrawerSheet
@@ -106,22 +109,23 @@ class MainActivity : ComponentActivity() {
                                 verticalAlignment = Alignment.Bottom
                             ) {
 
-                            IconButton(onClick = { /*TODO*/ },
+                            IconButton(onClick = {
+                            },
                                 modifier = Modifier
                                     //.size(ButtonDefaults.IconSize)
                             ) {
-                                Icon(Icons.Default.AccountBox, contentDescription = "description",
+                                Icon(Icons.Outlined.AccountBox, contentDescription = "description",
                                     )
                             }
                             IconButton(onClick = { /*TODO*/ },
                                 modifier = Modifier,
                                 ) {
-                                Icon(imageVector = Icons.Filled.Edit, contentDescription = "Edit")
+                                Icon(imageVector = Icons.Outlined.Email, contentDescription = "Edit")
                             }
                             IconButton(onClick = { /*TODO*/ },
                                 modifier = Modifier
                             ) {
-                                Icon(imageVector = Icons.Sharp.Edit, contentDescription = "Edit")
+                                Icon(imageVector = Icons.Outlined.Create, contentDescription = "Edit")
                             }
                             ExtendedFloatingActionButton(onClick = { /*TODO*/ },
                                 containerColor = BottomAppBarDefaults.bottomAppBarFabColor,
