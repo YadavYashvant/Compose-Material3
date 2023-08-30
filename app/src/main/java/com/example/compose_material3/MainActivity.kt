@@ -42,6 +42,7 @@ import androidx.compose.animation.expandHorizontally
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -73,6 +74,8 @@ import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
@@ -87,54 +90,100 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Box {
-                        NavigationDrawer()
-                        Box (
+                        OutlinedCardExample()
+                        FilledcardExample()
+                        Box(
                             modifier = Modifier
                                 .align(Alignment.TopEnd)
                                 .wrapContentSize()
-                        ){
+                        ) {
                             Dialog()
                         }
-                        BottomAppBar (
+                        BottomAppBar(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .align(Alignment.BottomCenter)
-                                .padding(horizontal = 12.dp)
-                        ){
+                        ) {
                             Row(
                                 horizontalArrangement = Arrangement.SpaceBetween,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(vertical = 10.dp),
+                                    .padding(horizontal = 10.dp),
                                 verticalAlignment = Alignment.Bottom
                             ) {
 
-                            IconButton(onClick = {
-                            },
-                                modifier = Modifier
+                                IconButton(
+                                    onClick = {
+                                    },
+                                    modifier = Modifier
                                     //.size(ButtonDefaults.IconSize)
-                            ) {
-                                Icon(Icons.Outlined.AccountBox, contentDescription = "description",
+                                ) {
+                                    Column(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                    ) {
+                                        Icon(
+                                            Icons.Outlined.AccountBox,
+                                            contentDescription = "description",
+                                            modifier = Modifier.align(Alignment.CenterHorizontally)
+                                        )
+                                        Text(text = "Profile", fontSize = 12.sp, modifier = Modifier
+                                            .align(Alignment.CenterHorizontally),
+                                            fontWeight = FontWeight.Bold
+                                        )
+                                    }
+                                }
+                                IconButton(
+                                    onClick = { /*TODO*/ },
+                                    modifier = Modifier,
+                                ) {
+                                    Column(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                    ) {
+                                        Icon(
+                                            Icons.Outlined.Email,
+                                            contentDescription = "description",
+                                            modifier = Modifier.align(Alignment.CenterHorizontally)
+                                        )
+                                        Text(text = "Inbox", fontSize = 12.sp, modifier = Modifier
+                                            .align(Alignment.CenterHorizontally),
+                                            fontWeight = FontWeight.Bold
+                                        )
+                                    }
+                                }
+                                IconButton(
+                                    onClick = { /*TODO*/ },
+                                    modifier = Modifier
+                                ) {
+                                    Column(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                    ) {
+                                        Icon(
+                                            Icons.Outlined.Create,
+                                            contentDescription = "description",
+                                            modifier = Modifier.align(Alignment.CenterHorizontally)
+                                        )
+                                        Text(text = "Create", fontSize = 12.sp, modifier = Modifier
+                                            .align(Alignment.CenterHorizontally)
+                                            .fillMaxWidth().fillMaxHeight(),
+                                            fontWeight = FontWeight.Bold
+                                        )
+                                    }
+                                }
+                                ExtendedFloatingActionButton(
+                                    onClick = { /*TODO*/ },
+                                    containerColor = BottomAppBarDefaults.bottomAppBarFabColor,
+                                    elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation(),
+                                    modifier = Modifier
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Filled.Add,
+                                        contentDescription = "checking"
                                     )
+                                }
                             }
-                            IconButton(onClick = { /*TODO*/ },
-                                modifier = Modifier,
-                                ) {
-                                Icon(imageVector = Icons.Outlined.Email, contentDescription = "Edit")
-                            }
-                            IconButton(onClick = { /*TODO*/ },
-                                modifier = Modifier
-                            ) {
-                                Icon(imageVector = Icons.Outlined.Create, contentDescription = "Edit")
-                            }
-                            ExtendedFloatingActionButton(onClick = { /*TODO*/ },
-                                containerColor = BottomAppBarDefaults.bottomAppBarFabColor,
-                                elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation(),
-                                modifier = Modifier
-                                ) {
-                                Icon(imageVector = Icons.Filled.Add, contentDescription = "checking")
-                            }
-                        }
                         }
                     }
                 }
