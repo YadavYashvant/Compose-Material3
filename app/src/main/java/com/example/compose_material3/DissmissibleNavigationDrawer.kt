@@ -5,11 +5,17 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.scrollable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.paddingFromBaseline
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Face
@@ -50,6 +56,7 @@ fun NavigationDrawer(
 
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scope = rememberCoroutineScope()
+    val scrollState = rememberScrollState()
 
     val items = listOf(Icons.Default.Favorite, Icons.Default.Face, Icons.Default.Email, Icons.Default.Home, Icons.Filled.Settings, Icons.Filled.Search)
     val selectedItem = remember{
@@ -104,7 +111,31 @@ fun NavigationDrawer(
                 )
             },
             content = {
+                Box(
+                ) {
+                    Column(
+                        Modifier
+                            //.scrollable(scrollState, enabled = true, orientation = Orientation.Vertical)
+                            .verticalScroll(rememberScrollState())
+                    ) {
+                        OutlinedCardExample()
+                        FilledcardExample()
+                        OutlinedCardExample()
+                        OutlinedCardExample()
+                        FilledcardExample()
+                        OutlinedCardExample()
+                        FilledcardExample()
+                        OutlinedCardExample()
+                        FilledcardExample()
+                        OutlinedCardExample()
+                        FilledcardExample()
+                        OutlinedCardExample()
+                        FilledcardExample()
+                        OutlinedCardExample()
 
+
+                    }
+                }
             }
         )
     }

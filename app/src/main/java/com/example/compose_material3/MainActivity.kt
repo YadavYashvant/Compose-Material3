@@ -109,92 +109,13 @@ class MainActivity : ComponentActivity() {
                         ) {
                             Dialog()
                         }
-                        BottomAppBar(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .align(Alignment.BottomCenter)
-                        ) {
-                            Row(
-                                horizontalArrangement = Arrangement.SpaceBetween,
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(horizontal = 10.dp),
-                                verticalAlignment = Alignment.Bottom
-                            ) {
 
-                                IconButton(
-                                    onClick = {
-                                    },
-                                    modifier = Modifier
-                                    //.size(ButtonDefaults.IconSize)
-                                ) {
-                                    Column(
-                                        modifier = Modifier
-                                            .fillMaxWidth()
-                                    ) {
-                                        Icon(
-                                            Icons.Outlined.AccountBox,
-                                            contentDescription = "description",
-                                            modifier = Modifier.align(Alignment.CenterHorizontally)
-                                        )
-                                        Text(text = "Profile", fontSize = 12.sp, modifier = Modifier
-                                            .align(Alignment.CenterHorizontally),
-                                            fontWeight = FontWeight.Bold
-                                        )
-                                    }
-                                }
-                                IconButton(
-                                    onClick = { /*TODO*/ },
-                                    modifier = Modifier,
-                                ) {
-                                    Column(
-                                        modifier = Modifier
-                                            .fillMaxWidth()
-                                    ) {
-                                        Icon(
-                                            Icons.Outlined.Email,
-                                            contentDescription = "description",
-                                            modifier = Modifier.align(Alignment.CenterHorizontally)
-                                        )
-                                        Text(text = "Inbox", fontSize = 12.sp, modifier = Modifier
-                                            .align(Alignment.CenterHorizontally),
-                                            fontWeight = FontWeight.Bold
-                                        )
-                                    }
-                                }
-                                IconButton(
-                                    onClick = { /*TODO*/ },
-                                    modifier = Modifier
-                                ) {
-                                    Column(
-                                        modifier = Modifier
-                                            .fillMaxWidth()
-                                    ) {
-                                        Icon(
-                                            Icons.Outlined.Create,
-                                            contentDescription = "description",
-                                            modifier = Modifier.align(Alignment.CenterHorizontally)
-                                        )
-                                        Text(text = "Create", fontSize = 12.sp, modifier = Modifier
-                                            .align(Alignment.CenterHorizontally)
-                                            .fillMaxWidth()
-                                            .fillMaxHeight(),
-                                            fontWeight = FontWeight.Bold
-                                        )
-                                    }
-                                }
-                                ExtendedFloatingActionButton(
-                                    onClick = { /*TODO*/ },
-                                    containerColor = BottomAppBarDefaults.bottomAppBarFabColor,
-                                    elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation(),
-                                    modifier = Modifier
-                                ) {
-                                    Icon(
-                                        imageVector = Icons.Filled.Add,
-                                        contentDescription = "checking"
-                                    )
-                                }
-                            }
+
+
+                        Box (
+                            modifier = Modifier.align(Alignment.BottomCenter)
+                        ){
+                            BottomNavigation()
                         }
                     }
                 }

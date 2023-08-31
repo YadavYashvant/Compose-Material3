@@ -1,6 +1,8 @@
 package com.example.compose_material3
 
+import androidx.compose.foundation.layout.absolutePadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Face
@@ -22,8 +24,9 @@ fun FilledcardExample() {
             containerColor = MaterialTheme.colorScheme.tertiaryContainer
         ),
         modifier = Modifier
-            .size(width = 220.dp, height = 250.dp)
-            .padding(vertical = 40.dp)
+            .size(width = 420.dp, height = 250.dp)
+            .padding(vertical = 15.dp, horizontal =20.dp)
+            .absolutePadding(left = 15.dp)
     ) {
         Text(
             text = "Filled card example and it is a simple one with no icons and buttons, thanks!",
