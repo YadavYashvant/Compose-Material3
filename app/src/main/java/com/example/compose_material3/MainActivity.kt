@@ -42,6 +42,7 @@ import androidx.compose.animation.expandHorizontally
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.absolutePadding
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -102,7 +103,7 @@ class MainActivity : ComponentActivity() {
                         NavigationDrawer()
                         Box(
                             modifier = Modifier
-                                .padding(vertical = 16.dp)
+                                .absolutePadding(top = 50.dp)
                                 .align(Alignment.TopEnd)
                                 .wrapContentSize()
                         ) {

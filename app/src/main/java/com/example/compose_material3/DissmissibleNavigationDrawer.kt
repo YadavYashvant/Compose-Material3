@@ -1,5 +1,6 @@
 package com.example.compose_material3
 
+import android.annotation.SuppressLint
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.activity.compose.BackHandler
@@ -25,9 +26,14 @@ import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.NavigationDrawerItem
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberDrawerState
+import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -36,6 +42,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NavigationDrawer(
@@ -53,7 +60,7 @@ fun NavigationDrawer(
             drawerState.close()
         }
     }
-    DismissibleNavigationDrawer(
+    ModalNavigationDrawer(
         drawerState = drawerState,
         modifier = Modifier.background(MaterialTheme.colorScheme.onPrimary),
         drawerContent = {
@@ -72,31 +79,33 @@ fun NavigationDrawer(
                     )
                 }
             }
-        },
-        content = {
-            Column(
-                modifier = Modifier
-                    .padding(16.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                IconButton(onClick = {
-                    scope.launch {
-                        drawerState.open()
-
-                    }
-                }) {
-                    Icon(imageVector = Icons.Default.Menu, contentDescription = null )
-                }
-                /*
-                Text(text = if (drawerState.isClosed) ">>> Swipe >>>" else "<<< Swipe <<<")
-                Spacer(Modifier.height(20.dp))
-                Button(onClick = {
-                    scope.launch { drawerState.isOpen }
-                }) {
-                    Text(text = "Click to open")
-                }
-                 */
-            }
         }
-    )
+    ){
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = {
+                        Text(text = "Home")
+                    },
+                    navigationIcon = {
+                        IconButton(onClick = {
+                            scope.launch { drawerState.open() }
+                        }) {
+                            Icon(
+                                imageVector = Icons.Default.Menu,
+                                contentDescription = null
+                            )
+                        }
+                    },
+                    colors = TopAppBarDefaults.smallTopAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.surfaceColorAtElevation(5.dp)
+                    )
+
+                )
+            },
+            content = {
+
+            }
+        )
+    }
 }
