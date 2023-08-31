@@ -22,8 +22,8 @@ fun FilledcardExample() {
             containerColor = MaterialTheme.colorScheme.tertiaryContainer
         ),
         modifier = Modifier
-            .size(width = 250.dp, height = 200.dp)
-            .padding(16.dp)
+            .size(width = 220.dp, height = 250.dp)
+            .padding(vertical = 40.dp)
     ) {
         Text(
             text = "Filled card example and it is a simple one with no icons and buttons, thanks!",

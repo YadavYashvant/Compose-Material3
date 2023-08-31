@@ -74,26 +74,35 @@ import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.setDecorFitsSystemWindows(window,false)
+
         setContent {
             Composematerial3Theme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    color = MaterialTheme.colorScheme.surface
                 ) {
-                    Box {
-                        OutlinedCardExample()
-                        FilledcardExample()
+                    Box(
+                        modifier = Modifier
+                    ) {
+                        NavigationDrawer()
                         Box(
                             modifier = Modifier
+                                .padding(vertical = 16.dp)
                                 .align(Alignment.TopEnd)
                                 .wrapContentSize()
                         ) {
@@ -167,7 +176,8 @@ class MainActivity : ComponentActivity() {
                                         )
                                         Text(text = "Create", fontSize = 12.sp, modifier = Modifier
                                             .align(Alignment.CenterHorizontally)
-                                            .fillMaxWidth().fillMaxHeight(),
+                                            .fillMaxWidth()
+                                            .fillMaxHeight(),
                                             fontWeight = FontWeight.Bold
                                         )
                                     }

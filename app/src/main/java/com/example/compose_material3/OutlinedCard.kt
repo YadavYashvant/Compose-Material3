@@ -21,11 +21,11 @@ fun OutlinedCardExample() {
         ),
         border = BorderStroke(1.dp, Color.Black),
         modifier = Modifier
-            .size(width = 240.dp, height = 200.dp)
+            .size(width = 240.dp, height = 220.dp)
             .padding(16.dp)
     ) {
         Text(
-            text = "Outlined",
+            text = "This is an example of outlined card, this looks sick, I might use it in one of my future projects.",
             modifier = Modifier
                 .padding(16.dp),
             textAlign = TextAlign.Center,
