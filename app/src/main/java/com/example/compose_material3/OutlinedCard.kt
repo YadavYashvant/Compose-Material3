@@ -1,8 +1,10 @@
 package com.example.compose_material3
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.absolutePadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -17,16 +19,44 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-@Preview
 fun OutlinedCardExample() {
     OutlinedCard(
+        /*
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface,
+            containerColor = MaterialTheme.colorScheme.onSurface,
         ),
+
+         */
         border = BorderStroke(1.dp, Color.Black),
         modifier = Modifier
             .size(width = 420.dp, height = 250.dp)
             .padding(vertical = 15.dp, horizontal =20.dp)
+            .absolutePadding(left = 15.dp)
+    ) {
+        Text(
+            text = "This is an example of outlined card, this looks sick, I might use it in one of my future projects.",
+            modifier = Modifier
+                .padding(16.dp),
+            textAlign = TextAlign.Center,
+            fontWeight = FontWeight.Bold
+        )
+    }
+}
+
+@Composable
+fun OutlinedCardspl(paddingValues: PaddingValues) {
+    OutlinedCard(
+        /*
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.onSurface,
+        ),
+
+         */
+        border = BorderStroke(1.dp, Color.Black),
+        modifier = Modifier
+            .paddingFromBaseline(top = 180.dp)
+            .size(width = 420.dp, height = 250.dp)
+            .padding( horizontal =20.dp)
             .absolutePadding(left = 15.dp)
     ) {
         Text(

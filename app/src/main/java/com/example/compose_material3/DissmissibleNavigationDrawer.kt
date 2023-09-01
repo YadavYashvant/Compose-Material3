@@ -40,6 +40,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.material3.surfaceColorAtElevation
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -107,7 +108,7 @@ fun NavigationDrawer(
                         }
                     },
                     colors = TopAppBarDefaults.smallTopAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.surfaceColorAtElevation(5.dp)
+                        containerColor = MaterialTheme.colorScheme.surfaceColorAtElevation(2000.dp)
                     )
 
                 )
@@ -120,7 +121,9 @@ fun NavigationDrawer(
                             //.scrollable(scrollState, enabled = true, orientation = Orientation.Vertical)
                             .verticalScroll(rememberScrollState())
                     ) {
-                        OutlinedCardExample()
+                        OutlinedCardspl(paddingValues = it)
+                        ElevatedCard()
+                        ElevatedCard()
                         FilledcardExample()
                         OutlinedCardExample()
                         OutlinedCardExample()
@@ -141,4 +144,9 @@ fun NavigationDrawer(
             }
         )
     }
+}
+
+@Composable
+fun CustomList() {
+    val cards = remember { }
 }
